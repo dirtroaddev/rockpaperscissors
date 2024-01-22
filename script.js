@@ -24,12 +24,37 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-    for(let i = 0; i < 5; i += 1) {
-        let playerAnswer = prompt("Enter your choice");
-        let compAnswer = getComputerChoice();
-        alert(playRound(playerAnswer, compAnswer));
+    let rock = document.querySelector('#rock');
+    let paper = document.querySelector('#paper');
+    let scissors = document.querySelector('#scissors');
+    let result = document.querySelector('#result');
+    let turns = document.querySelector('#turns');
+    let turnsCount = 0;
 
-    }
+    
+
+    rock.addEventListener('click', (e) => {
+        e.preventDefault();
+        let compAnswer = getComputerChoice();
+        result.textContent = playRound('rock', compAnswer)
+        turnsCount += 1;
+        turns.textContent = turnsCount;
+        
+    });
+    paper.addEventListener('click', (e) => {
+        e.preventDefault();
+        let compAnswer = getComputerChoice();
+        result.textContent = playRound('paper', compAnswer)
+        turnsCount += 1;
+        turns.textContent = turnsCount;
+    });
+    scissors.addEventListener('click', (e) => {
+        e.preventDefault();
+        let compAnswer = getComputerChoice();
+        result.textContent = playRound('scissors', compAnswer)
+        turnsCount += 1;
+        turns.textContent = turnsCount;
+    });
 }
 
 game();
